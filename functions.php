@@ -2,7 +2,6 @@
 
 require_once('conf.php');
 require_once('helpers.php');
-
 function getCatById() {
 try {
   $db = connect();
@@ -14,15 +13,12 @@ try {
   echo $e->getMessage();
  }
 }
-
 function getCats() {
     try {
         // Récupération de l'objet PDO
         $db = connect();
-
         // Requête pour récupérer tous les abos
         $catsQuery=$db->query('SELECT * FROM categories');
-
         // Renvoie tous les lignes
         return $catsQuery->fetchAll(PDO::FETCH_ASSOC);
     } catch (Exception $e) {
@@ -34,9 +30,7 @@ function addAnnonce() {
   try {
     $db = connect();
   $createannonceStmt = $db->prepare("INSERT INTO `annonces`( `date_creation`, `titre`, `description`, `duree_de_publication_en_mois`, `prix_vente_objet`, `cout_annonce`, `id_mode_paiement`, `id_etat`, `id_utilisateur`) VALUES (:date_creation, :titre, :description, :duree_de_publication_en_mois, :prix_vente_objet, :cout_annonce, :id_mode_paiement, :id_etat, :id_utilisateur)");
-
   $createannonceStmt->execute(['date_creation'=>$date_creation,'titre'=>$titre, 'description'=>$description, 'duree_de_publication_en_mois'=>$duree_de_publication_en_mois, 'prix_vente_objet'=>$prix_vente_objet,'cout_annonce'=>$cout_annonce, 'id_mode_paiement'=>$id_mode_paiement,'id_etat'=>$id_etat,'id_utilisateur'=>$id_utilisateur]);
-
   if ($createannonceStmt->rowCount()) {
       $last_id=$db->lastInsertId();
       addImage($last_id,$path);
@@ -53,7 +47,6 @@ function addAnnonce() {
   $type = 'error';
   $message = 'annonce non ajouté: ' . $e->getMessage();
 }
-
 }
 function getAnnonces() {
     try {
@@ -131,9 +124,6 @@ function getPaye() {
         echo $e->getMessage();
     }
 }
-
-  
-  
   function Search($recherche){
     try {
       $db = connect();

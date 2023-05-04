@@ -1,6 +1,4 @@
 <?php
-
-
 function getUtilisateur($id){
     try {
       $db = connect();
@@ -12,8 +10,6 @@ function getUtilisateur($id){
     }
     return false;
   }
-
-
   function getUsers($limit=10,$page=1){
     try {
       $db = connect();
@@ -24,7 +20,6 @@ function getUtilisateur($id){
     }
     return false;
   }
-
    // modification d'un utilisateur
    function updateUser($id){
     try {
@@ -49,7 +44,6 @@ function getUtilisateur($id){
     }
     return false;
   }
-  
   //suppression d'un utilisateur via son id
   function deleteUser($id){
     try {
@@ -61,7 +55,6 @@ function getUtilisateur($id){
     }
     return false;
   }
-
   function adduser(){
     try {
       $db = connect();
@@ -86,7 +79,6 @@ function getUtilisateur($id){
     }
     return false;
   }
-  
   function getUserByLogin($login) {
     try {
         $db = connect();
@@ -125,21 +117,17 @@ function getUtilisateur($id){
       return false;
     }
   }
-  
   function logout(){
     session_destroy();
     unset($_SESSION);
-      return is_connected();
-  
+      return is_connected(); 
   }
-  
   function is_connected(){
     //if($_SESSION['connected']) return true;
      if(isset($_SESSION['connected']))
     return $_SESSION['connected'];
      return false;
   }
-  
   function is_admin(){
     if(is_connected() && isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) return true;
     return false;

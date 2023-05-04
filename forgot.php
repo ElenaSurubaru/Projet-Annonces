@@ -5,10 +5,6 @@ require_once('conf.php');
 require_once('helpers.php');
 require_once('functions.php'); 
 require_once('functions-users.php'); 
-
-
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $safe_email=filter_var(filter_input(INPUT_POST,"email",FILTER_SANITIZE_EMAIL),FILTER_VALIDATE_EMAIL);
        if($safe_email) {
@@ -33,18 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
       }
-
-    }
-    
-    
+    }   
 ?>
-
 <form action="" method="post">
-
     <label for="name"><b>Email</b></label>
     <input type="email" placeholder="Enter Email" name="email" required>
-
-    
     <button type="submit">Envoyér</button>
-
 </form>
