@@ -5,11 +5,7 @@ session_start();
 require_once('conf.php');
   require_once('helpers.php');
   require_once('functions.php'); 
-  require_once('functions-users.php'); 
-
-//  adduser();   
-
-
+  require_once('functions-users.php');   
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $safe_email=filter_var(filter_input(INPUT_POST,"email",FILTER_SANITIZE_EMAIL),FILTER_VALIDATE_EMAIL);
