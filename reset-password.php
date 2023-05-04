@@ -4,10 +4,6 @@
   require_once('helpers.php');
   require_once('functions.php'); 
   require_once('functions-users.php'); 
-
-
-
-
 if (isset($_POST['submit'])) {
     $token=htmlspecialchars($_POST['reset_token']);
     $db =connect();
@@ -36,18 +32,12 @@ if (isset($_POST['submit'])) {
             echo "Le mot de passe doit contenir 8 caractéres avec 1 minuscule, 1 majuscule et 1 caractere(&%+/$)";
         
              }
-
-
-
-       
     } 
     else echo "lien invalide";
 }     else echo "lien perimée";
 }
 $token=htmlspecialchars($_GET['t']);
-// filter_input(INPUT_GET)
-
- $db =connect();
+$db =connect();
 $query = $db->prepare('SELECT reset_token FROM utilisateur WHERE reset_token = :reset_token');
 $query->execute(['reset_token'=>$token]);
 
