@@ -27,7 +27,6 @@ try {
 
 // Fermeture de la connexion à la BDD
 $db=null;
-// getUtilisateur($id);
 ?>
 
 <?php require_once 'head.php' ?>

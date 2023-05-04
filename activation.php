@@ -6,7 +6,6 @@ require_once('functions.php');
 require_once('functions-users.php'); 
 
 $token=htmlspecialchars($_GET['t']);
-// filter_input(INPUT_GET)
 
  $db =connect();
 $query = $db->prepare('SELECT reset_token FROM utilisateur WHERE reset_token = :reset_token');
