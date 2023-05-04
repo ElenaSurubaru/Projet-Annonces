@@ -1,13 +1,10 @@
 
 <?php
  session_start();
-
-
  require_once('conf.php');
  require_once('helpers.php');
  require_once('functions.php'); 
  require_once('functions-users.php'); 
-
  if(isset($_SESSION['admin'])){
   $user = $_SESSION['admin'];
  }else{
@@ -34,11 +31,9 @@ if (isset($_GET['id'])) {
     // Fermer la connection à la BDD
     $annonceQuery=null;
     $db=null;
-}
-
-        
+}        
 $cats = getCats();
- $etats=getEtats();
+$etats=getEtats();
 $payements=getPaye(); 
 $cout_annonce=10;
 ?>
@@ -51,15 +46,11 @@ $cout_annonce=10;
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" media="screen" type="text/css" title="Design" href="css/contact.css" />
         <title> Ajout Annonce</title>
-    </head>
-    
-    <body>
-        
+    </head>  
+    <body>    
     <a href='index.php' class='btn btn-secondary m-2 active' role='button'>Accueil</a>
      <a href='annonces.php' class='btn btn-secondary m-2 active' role='button'>Annonces</a>
-
-        
-        <div class="categories">
+       <div class="categories">
             <h1>Ajouter/Modifier une annonce</h1>
             <form method='post' action='add-edit-annonce.php' enctype="multipart/form-data">
         <!--  Ajouter the ID to the form if it exists but make the field hidden -->
@@ -82,8 +73,7 @@ $cout_annonce=10;
            
             <label for='prix_vente_objet'>Prix vente objet</label>
             <input type="text" id="prix_vente_objet" name="prix_vente_objet" placeholder="Prix vente objet" min="1" required autofocus value='<?= isset($annonce['prix_vente_objet']) ? htmlentities($annonce['prix_vente_objet']) : '' ?>'><br><hr>
-           
-            
+             
             <p>Indiquez l'état de l'article<br>
              <?php affiche_select_etat($etats,"id_etat",$etat['id_etat']?? 0); ?>
 		
@@ -91,23 +81,14 @@ $cout_annonce=10;
              
             <p>Indiquez le mode de paiement<br>
             <?php affiche_select_paye($payements,"id_mode_paiement",$paye['id_mode_paiement']?? 0); ?>
-
-
-         
                 
             <label for ="file">Ajouter des images</label>
             <input type="file" id="image" name="image[]" placeholder="Photo" multiple accept="image/*"><br><br>
 
-
-            <input type="submit" name="submit"value="Ajouter" class="submit">
-            
-            
+            <input type="submit" name="submit"value="Ajouter" class="submit">      
         </form>
-
 <br>
 <hr>
-
-
 <footer>
     <div class="menu">
         <div class="accueil_footer">
@@ -115,10 +96,8 @@ $cout_annonce=10;
             <i class="fas fa-home"></i>
             <p>Accueil</p>
         </a>
-    
 </div>
 </footer>
-
 <script src="https://kit.fontawesome.com/508ebce8fc.js"></script> 
 </body>
 </html>

@@ -11,8 +11,6 @@ if (isset($_POST['submit'])) {
     $query->execute(['reset_token'=>$token]);
     $result= $query->fetch();
     if(time()<$result['perime'])  {
-
-   
     if($query->rowCount()==1)   {
         $pwd=htmlspecialchars($_POST['password']);
          $pwd2=htmlspecialchars($_POST['password2']);

@@ -31,8 +31,6 @@ if (!empty($_POST)) {
     if (empty($_POST['id'])) {
          // S'il n'y a pas d'ID, le annonce n'existe pas dans la BDD donc on l'ajoute.
          try {
-
-           
             // Préparation de la requête d'insertion.
             $createannonceStmt = $db->prepare("INSERT INTO `annonces`( `date_creation`, `titre`, `description`, `duree_de_publication_en_mois`, `prix_vente_objet`, `cout_annonce`, `id_mode_paiement`, `id_etat`, `id_utilisateur`) VALUES (:date_creation, :titre, :description, :duree_de_publication_en_mois, :prix_vente_objet, :cout_annonce, :id_mode_paiement, :id_etat, :id_utilisateur)");
             // Exécution de la requête

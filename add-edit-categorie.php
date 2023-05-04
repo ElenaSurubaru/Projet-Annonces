@@ -7,11 +7,8 @@ require_once('conf.php');
   require_once('functions-users.php'); 
 
 if (!empty($_POST)) {
-   
-    
     $nom = $_POST['nom_categorie'] ?? '';
     $cat_id = filter_input(INPUT_POST, 'cat', FILTER_SANITIZE_NUMBER_INT);
-
     // Connection à la BDD avec la fonction connect() dans functions.php
     $db = connect();
 
@@ -66,12 +63,10 @@ if (!empty($_POST)) {
             $message = 'Categorie non mis à jour: ' . $e->getMessage();
         }
     }
-
     // Fermeture des connexions à la BDD
     $updateCatStmt = null;
     $updateCatStmt = null;
     $db = null;
-
     // Redirection vers la page principale des membres en passant le message et son type en variables GET
     header('location:' . 'categories.php?type=' . $type . '&message=' . $message);
 }
