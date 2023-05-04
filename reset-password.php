@@ -42,9 +42,7 @@ $query = $db->prepare('SELECT reset_token FROM utilisateur WHERE reset_token = :
 $query->execute(['reset_token'=>$token]);
 
 if($query->rowCount()==1):?>
-  <form action="identifier-form.php" method="post">
-
-    
+  <form action="identifier-form.php" method="post"> 
 <input type="hidden" name="reset_token"  value="$token" >
 
 <label for="password"><b>Password</b></label>
@@ -60,6 +58,4 @@ if($query->rowCount()==1):?>
 else: 
     echo "Lien invalide, veuillez redemander un nouveau mot de passe";
 endif;
-   
-
 ?>

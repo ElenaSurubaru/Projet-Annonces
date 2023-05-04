@@ -41,8 +41,6 @@ $stmt = $db->prepare("SELECT * FROM annonces WHERE id_utilisateur = :id_utilisat
 $stmt->execute(['id_utilisateur'=>$user_id]);
 $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
 echo "<br>Bonjour ".$_SESSION['login'].", vous êtes en ligne";
-
-
 ?>
 
 <?php require_once 'head.php' ?>
