@@ -12,7 +12,6 @@ require_once('conf.php');
 
 $annonces=getAnnonces();
 ?>
-
 <?php require_once 'head.php' ?>
 
 <a href='index.php' class='btn btn-secondary m-2 active' role='button'>Accueil</a>
@@ -32,20 +31,15 @@ $annonces=getAnnonces();
         </div>
     </div>
 <?php endif; ?>
-
 <div class='row'>
     <h1 class='col-md-12 text-center border border-dark text-white bg-primary'>Annonces</h1>
 </div>
 <div class='row'>
-   
-      
-            <div class="flex-container">
-            
+            <div class="flex-container"> 
             <?php foreach ($annonces as $annonce) :
                $utilisateur= getUtilisateur($annonce['id_utilisateur']);
                $etat=getEtat($annonce['id_etat']);
                 ?>
-              
                 <div class="flex-items">
                  <p><img src="<?= getImage($annonce['id_annonce'])?? 'img/defaut.jpg'?>" width="300px" alt="Photo"></p>                  
                     <p>Date de création:<?= htmlentities($annonce['date_creation']) ?></p>
@@ -54,11 +48,7 @@ $annonces=getAnnonces();
                     <p>Prix de vente:<?= htmlentities($annonce['prix_vente_objet']) ?></p>
                     <p>Etat:<?= htmlentities($etat['libelle_etat']) ?></p>
                     <p>Utilisateur:<?= htmlentities($utilisateur['nom_utilisateur']) ?></p>
-                    
-                   
                     </div>
-    
-                
             <?php endforeach; ?>
             </div>
 </div>
@@ -66,8 +56,7 @@ $annonces=getAnnonces();
             ?>
 <div class='row'>
     <div class='col'>
-        
-        <a class='btn btn-success' href='annonce-form.php' role='button'>Créer une annonce</a>
+         <a class='btn btn-success' href='annonce-form.php' role='button'>Créer une annonce</a>
     </div>
 </div>
    <?php } ?>
